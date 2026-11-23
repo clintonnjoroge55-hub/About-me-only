@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clinton Njoroge - Computer Science student and developer.">
+    <title>Clinton Njoroge | Developer Portfolio</title>
+    <style>
+        :root { --ink:#17211b; --paper:#f4f0e7; --green:#195a3a; --lime:#c9d85b; --orange:#ed7d31; --line:rgba(23,33,27,.16); }
+        * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { margin:0; color:var(--ink); background:linear-gradient(rgba(23,33,27,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(23,33,27,.035) 1px,transparent 1px),var(--paper); background-size:32px 32px; font-family:Georgia,"Times New Roman",serif; }
+        a { color:inherit; }
+        .site-header { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; min-height:76px; padding:12px 5vw; border-bottom:1px solid var(--line); background:rgba(244,240,231,.94); backdrop-filter:blur(12px); }
+        .brand { display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:700; }
+        .brand-mark { display:grid; place-items:center; width:42px; height:42px; border-radius:50%; color:white; background:var(--green); font-family:Arial,sans-serif; font-size:14px; }
+        nav { display:flex; gap:28px; }
+        nav a { position:relative; text-decoration:none; font-family:Arial,sans-serif; font-size:14px; font-weight:700; }
+        nav a::after { content:""; position:absolute; right:0; bottom:-6px; left:0; height:2px; background:var(--orange); transform:scaleX(0); transition:transform 180ms ease; }
+        nav a:hover::after { transform:scaleX(1); }
+        main { overflow:hidden; }
+        .hero { display:grid; grid-template-columns:1.08fr .92fr; align-items:center; min-height:calc(100vh - 76px); max-width:1440px; margin:0 auto; padding:48px 5vw 64px; }
+        .eyebrow { display:inline-flex; align-items:center; gap:9px; margin:0 0 22px; color:var(--green); font-family:Arial,sans-serif; font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+        .eyebrow::before { content:""; width:34px; height:3px; background:var(--orange); }
+        h1 { max-width:760px; margin:0; font-size:clamp(64px,7vw,118px); line-height:.85; letter-spacing:0; }
+        h1 em { display:block; color:var(--green); font-weight:400; }
+        .hero-copy { max-width:560px; margin:28px 0 34px; font-family:Arial,sans-serif; font-size:18px; line-height:1.7; }
+        .actions { display:flex; flex-wrap:wrap; gap:12px; }
+        .button { display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:0 22px; border:1px solid var(--ink); border-radius:4px; text-decoration:none; font-family:Arial,sans-serif; font-size:14px; font-weight:800; transition:180ms ease; }
+        .button-primary { color:white; background:var(--ink); }
+        .button-primary:hover { background:var(--green); border-color:var(--green); }
+        .button-secondary:hover { background:white; }
+        .portrait-wrap { position:relative; justify-self:end; width:min(42vw,540px); aspect-ratio:4/5; }
+        .portrait-wrap::before { content:""; position:absolute; right:-20px; bottom:-20px; width:42%; height:42%; background:var(--lime); }
+        .portrait-wrap::after { content:"CN"; position:absolute; right:-16px; top:34px; display:grid; place-items:center; width:74px; height:74px; border-radius:50%; color:white; background:var(--orange); font-family:Arial,sans-serif; font-size:22px; font-weight:800; transform:rotate(8deg); }
+        .portrait-wrap img { position:relative; z-index:1; width:100%; height:100%; object-fit:cover; border:1px solid var(--ink); filter:saturate(.84) contrast(1.03); }
+        .section { max-width:1440px; margin:0 auto; padding:92px 5vw; }
+        .section-heading { display:flex; align-items:end; justify-content:space-between; gap:32px; margin-bottom:44px; border-bottom:1px solid var(--line); padding-bottom:18px; }
+        h2 { margin:0; font-size:clamp(42px,5vw,72px); line-height:1; }
+        .section-number { color:var(--orange); font-family:Arial,sans-serif; font-size:13px; font-weight:800; }
+        .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+        .about-lead { margin:0; font-size:clamp(28px,3vw,44px); line-height:1.15; }
+        .about-details { display:grid; gap:18px; font-family:Arial,sans-serif; line-height:1.7; }
+        .facts { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); background:rgba(255,255,255,.35); }
+        .fact { min-height:150px; padding:28px; border-right:1px solid var(--line); }
+        .fact:last-child { border-right:0; }
+        .fact span { display:block; margin-bottom:14px; color:var(--green); font-family:Arial,sans-serif; font-size:12px; font-weight:800; text-transform:uppercase; }
+        .fact strong { font-size:24px; }
+        .skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+        .skill-card { min-height:230px; padding:28px; border:1px solid var(--ink); border-radius:4px; background:var(--paper); }
+        .skill-card:nth-child(2) { background:var(--lime); }
+        .skill-card:nth-child(3) { color:white; background:var(--green); }
+        .skill-card span { display:block; margin-bottom:56px; font-family:Arial,sans-serif; font-size:13px; font-weight:800; }
+        .skill-card h3 { margin:0 0 12px; font-size:30px; }
+        .skill-card p { margin:0; font-family:Arial,sans-serif; line-height:1.6; }
+        .contact { color:white; background:var(--ink); }
+        .contact-inner { max-width:1440px; margin:0 auto; padding:76px 5vw; }
+        .contact h2 { max-width:900px; margin-bottom:38px; }
+        .contact h2 em { color:var(--lime); font-weight:400; }
+        .contact-links { display:flex; flex-wrap:wrap; gap:12px; }
+        .contact-links .button { color:var(--ink); border-color:white; background:white; }
+        .contact-links .button:hover { background:var(--lime); border-color:var(--lime); }
+        footer { display:flex; justify-content:space-between; max-width:1440px; margin:0 auto; padding:22px 5vw; font-family:Arial,sans-serif; font-size:12px; }
+        @media (max-width:900px) {
+            .site-header { min-height:68px; } nav { display:none; }
+            .hero { grid-template-columns:1fr; padding-top:56px; }
+            .portrait-wrap { width:min(78vw,480px); justify-self:center; margin-top:52px; }
+            .about-grid,.facts,.skills-grid { grid-template-columns:1fr; }
+            .fact { border-right:0; border-bottom:1px solid var(--line); }
+            .fact:last-child { border-bottom:0; }
+            h1 { font-size:clamp(58px,17vw,92px); }
+        }
+        @media (max-width:540px) {
+            .brand-name { display:none; } .hero { min-height:auto; }
+            .hero-copy { font-size:16px; } .portrait-wrap { width:82vw; }
+            .portrait-wrap::after { width:58px; height:58px; font-size:18px; }
+            .section { padding-top:68px; padding-bottom:68px; }
+            .section-heading { align-items:start; }
+            .actions,.actions .button,.contact-links,.contact-links .button { width:100%; }
+            footer { gap:12px; flex-direction:column; }
+        }
+        @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#top" aria-label="Back to top"><span class="brand-mark">CN</span><span class="brand-name">Clinton Njoroge</span></a>
+        <nav aria-label="Primary navigation"><a href="#about">About</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+    </header>
+    <main id="top">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Computer Science Student</p>
+                <h1>Clinton <em>Njoroge.</em></h1>
+                <p class="hero-copy">A curious developer studying Computer Science at Kirinyaga University, building practical skills and creating thoughtful digital experiences.</p>
+                <div class="actions"><a class="button button-primary" href="#contact">Let’s work together</a><a class="button button-secondary" href="#about">Discover my story</a></div>
+            </div>
+            <div class="portrait-wrap"><img src="njoro.jpg" alt="Portrait of Clinton Njoroge"></div>
+        </section>
+        <section class="section" id="about">
+            <div class="section-heading"><h2>About me</h2><span class="section-number">01 / PROFILE</span></div>
+            <div class="about-grid">
+                <p class="about-lead">I’m learning to turn ideas into clear, useful and engaging digital solutions.</p>
+                <div class="about-details"><p>I am currently pursuing Computer Science at Kirinyaga University. My focus is growing strong foundations in programming, problem-solving and modern technology.</p><p>I am committed to learning continuously, improving my craft and contributing to projects that make technology more accessible and effective.</p></div>
+            </div>
+        </section>
+        <section class="section" id="skills">
+            <div class="section-heading"><h2>What I bring</h2><span class="section-number">02 / SKILLS</span></div>
+            <div class="skills-grid">
+                <article class="skill-card"><span>01</span><h3>Coding</h3><p>Building a practical foundation in programming and software development.</p></article>
+                <article class="skill-card"><span>02</span><h3>Problem solving</h3><p>Breaking complex challenges into clear, logical and workable steps.</p></article>
+                <article class="skill-card"><span>03</span><h3>Growing expertise</h3><p>Actively learning new tools, concepts and approaches in computer science.</p></article>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <div class="contact-inner"><p class="eyebrow" style="color:var(--lime)">Start a conversation</p><h2>Have an idea or opportunity? <em>Let’s talk.</em></h2><div class="contact-links"><a class="button" href="mailto:clintonnjoroge55@gmail.com">Send an email</a><a class="button" href="tel:+254116068001">Call me</a></div></div>
+        </section>
+    </main>
+    <footer><span>© <span id="year"></span> Clinton Njoroge</span><span>Kirinyaga, Kenya</span></footer>
+    <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
